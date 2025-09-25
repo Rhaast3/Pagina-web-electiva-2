@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+  <title>Marcos en Vercel — Guía rápida</title> 
+  <meta name="description" content="Resumen de soporte, características y la especificación Create API de salida para integrar marcos con Vercel." /> 
+  
+  <!-- Vinculamos el CSS externo con la ruta correcta -->
+  <link rel="stylesheet" href="styles/Styleframeworks.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">V</div>
+      <div>
+        <h1>Marcos en Vercel</h1>
+        <p class="lead">Soporte de primera clase para frameworks frontend, backend y full-stack — despliega rápido, con previews por cada pull request.</p>
+      </div>
+    </header>
+
+    <div class="grid" style="margin-top:18px">
+      <main>
+        <section>
+          <h2>Resumen</h2>
+          <p>Vercel ofrece integración directa con una amplia variedad de <strong>marcos</strong> (frameworks) modernos: desde SvelteKit hasta Nitro y más. Puedes comenzar desde cero con Vercel o clonar uno de los repositorios de ejemplo en tu proveedor de Git e implementarlo usando una plantilla.</p>
+        </section>
+
+        <section>
+          <h2>Cómo funcionan las implementaciones y previews</h2>
+          <p>Las implementaciones de Vercel se integran con tu proveedor de Git para generar <strong>URL de vista previa</strong> por cada pull request que abras — ideal para revisiones y QA antes de fusionar a producción.</p>
+        </section>
+
+        <section>
+          <h2>Principales características al usar marcos soportados</h2>
+
+          <div class="feature">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <strong>Funciones escalables</strong>
+              <p class="muted">Escribe funciones que escalan según demanda, evitando caídas en horas pico y optimizando costos en baja actividad.</p>
+            </div>
+          </div>
+
+          <div class="feature" style="margin-top:10px">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12h18M12 3v18" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <strong>Middleware</strong>
+              <p class="muted">Código que se ejecuta antes de procesar una solicitud, útil para personalizar respuestas y para operar antes de que la caché responda.</p>
+            </div>
+          </div>
+
+          <div class="feature" style="margin-top:10px">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 18h16M4 12h16" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <strong>Soporte multi-runtime</strong>
+              <p class="muted">Usa distintos tiempos de ejecución para tus funciones, escogiendo librerías y APIs según necesidades técnicas.</p>
+            </div>
+          </div>
+
+          <div class="feature" style="margin-top:10px">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2v20M2 7h20" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <strong>Regeneración estática incremental</strong>
+              <p class="muted">Actualiza contenido sin redeploy: Vercel sirve la página desde caché y la reconstruye a intervalos configurados.</p>
+            </div>
+          </div>
+
+          <div style="margin-top:12px">
+            <ul>
+              <li><strong>Perspectivas de velocidad:</strong> métricas de Core Web Vitals en el panel de Vercel para mejorar rendimiento.</li>
+              <li><strong>Análisis:</strong> informes de rendimiento, páginas principales, referentes y demografía de usuarios.</li>
+              <li><strong>Protección contra sesgos:</strong> bloqueo de versiones para alinear cliente y servidor y evitar errores de versión.</li>
+            </ul>
+          </div>
+
+        </section>
+
+        <section>
+          <h2>Create API de salida</h2>
+          <p>La <em>Create API de salida</em> (Build Output API) es una especificación basada en sistema de archivos que define la estructura de directorios que produce una implementación de Vercel. Está pensada principalmente para autores de frameworks que desean integrar sus herramientas con las capacidades de la plataforma Vercel.</p>
+
+          <p>Al generar la carpeta <code>.vercel/output</code> como resultado del comando de compilación, los autores del framework pueden aprovechar funciones de plataforma como funciones serverless, enrutamiento y caché.</p>
+
+          <p>Si no usas un framework, aún puedes crear y completar manualmente <code>.vercel/output</code> siguiendo la especificación. Hay ejemplos en los repositorios oficiales de Vercel y una publicación de blog que detalla cómo crear tu propio framework con esta API.</p>
+        </section>
+
+        <section>
+          <h2>Recursos y pasos rápidos</h2>
+          <ol>
+            <li>Clona un ejemplo: <code>git clone &lt;repo-ejemplo&gt;</code>.</li>
+            <li>Instala dependencias y corre tu build: <code>npm install && npm run build</code>.</li>
+            <li>Desplega en Vercel desde tu proveedor de Git o usando <code>vercel deploy</code>.</li>
+            <li>Revisa previews y funciones desde el dashboard de Vercel.</li>
+          </ol>
+
+        </section>
+
+      </main>
+
+      <aside>
+        <h2>Atajos útiles</h2>
+        <p class="muted">Fragmentos rápidos que te ayudan a trabajar con Vercel y la salida de build.</p>
+
+        <section style="margin-top:10px">
+          <h3 style="margin:0;font-size:0.95rem">Ejemplo .vercel/output</h3>
+          <pre class="kbd" style="margin-top:8px">.vercel/output/
+├─ functions/
+├─ static/
+└─ config.json
+          </pre>
+        </section>
+
+        <section style="margin-top:12px">
+          <h3 style="margin:0;font-size:0.95rem">Comandos</h3>
+          <ul>
+            <li><code>vercel --prod</code> — desplegar producción.</li>
+            <li><code>vercel dev</code> — correr localmente con emulación de plataforma.</li>
+          </ul>
+        </section>
+
+        <section style="margin-top:12px">
+          <h3 style="margin:0;font-size:0.95rem">Consejos</h3>
+          <ul>
+            <li>Usa previews por pull request para QA rápido.</li>
+            <li>Configura rutas y caché en <code>config.json</code> de salida para controlar regeneración.</li>
+            <li>Revisa las guías oficiales y los ejemplos de Vercel para adaptaciones específicas de cada framework.</li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+
+    <footer>
+      © Vercel 
+    </footer>
+  </div>
+</body>
+</html>
